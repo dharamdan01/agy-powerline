@@ -1,6 +1,6 @@
 # agy-powerline
 
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [Français](README.fr.md)
+[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | **Français**
 
 [![CI](https://github.com/wassim-azi/agy-powerline/actions/workflows/ci.yml/badge.svg)](https://github.com/wassim-azi/agy-powerline/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/npm/v/agy-powerline.svg)](https://www.npmjs.com/package/agy-powerline)
@@ -12,9 +12,9 @@
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/wassim-azi/agy-powerline/badge)](https://scorecard.dev/viewer/?uri=github.com/wassim-azi/agy-powerline)
 [![Mentioned in Awesome Gemini CLI](https://img.shields.io/badge/mentioned%20in-awesome-fc60a8.svg?logo=awesomelists&logoColor=white)](https://github.com/Piebald-AI/awesome-gemini-cli)
 
-> **Remarque :** cette traduction peut ne pas être à jour. En cas de divergence, la [version anglaise](README.md) fait foi.
+> > **Remarque :** cette traduction peut ne pas être à jour. En cas de divergence, la [version anglaise](README.md) fait foi. La documentation détaillée ([`docs/`](docs/)) n’existe qu’en anglais.
 
-**Une barre d’état rapide et configurable pour l’interface en ligne de commande (`agy`) de Google Antigravity.**
+**Une barre d’état rapide et configurable pour la CLI de Google Antigravity (`agy`).**
 
 Consultez d’un coup d’œil le modèle utilisé, les quotas Gemini sur 5h/7d, ceux de Claude/GPT et d’Argon, la fenêtre de contexte, la branche Git et bien plus encore. Choisissez les widgets, les thèmes et la disposition dans un éditeur interactif. Une seule commande suffit pour l’installation, sans aucune dépendance.
 
@@ -46,7 +46,7 @@ Pour un terminal sans police Nerd Font, activez le mode ASCII (touche `i` dans `
 
 ## Personnalisation
 
-`npx agy-powerline configure` ouvre un éditeur qui affiche un aperçu en temps réel de votre barre d’état. Utilisez `←` et `→` pour passer de Widgets à Presets, Themes, Layout ou Powerline ; `↑` et `↓` pour vous déplacer ; Entrée pour sélectionner ; et `q` pour enregistrer et quitter. Les touches disponibles sont affichées en bas de chaque écran. La liste complète figure dans la [documentation de configuration](docs/configuration.md#configurator-keys).
+`npx agy-powerline configure` ouvre un éditeur qui affiche un aperçu en temps réel de votre barre d’état. Utilisez `←` et `→` pour passer d’un onglet à l’autre (Widgets, Presets, Themes, Layout, Powerline) ; `↑` et `↓` pour vous déplacer ; Entrée pour sélectionner ; et `q` pour enregistrer et quitter. Les touches disponibles sont affichées en bas de chaque écran. La liste complète figure dans la [documentation de configuration](docs/configuration.md#configurator-keys).
 
 Les modifications s’appliquent à une session `agy` en cours lors de l’actualisation suivante.
 
@@ -75,10 +75,10 @@ Prévisualisez tous les thèmes avec `npx agy-powerline theme --gallery`.
 
 ### Dispositions
 
-**Pills** (par défaut) : capsules de style powerline. Choisissez des formes arrondies, anguleuses, inclinées ou plates, et ajoutez éventuellement une ligne vide entre les rangées.
+**Pills** (par défaut) : capsules de style powerline. Choisissez des formes arrondies, anguleuses, inclinées ou plates, et ajoutez éventuellement une ligne vide entre les lignes de la barre.
 
 <p align="center">
-  <img src="assets/screenshots/pills-light.png" alt="Disposition Pills d’agy-powerline avec le thème light-sky sur un terminal clair et un espace entre les rangées" width="850">
+  <img src="assets/screenshots/pills-light.png" alt="Disposition Pills d’agy-powerline avec le thème light-sky sur un terminal clair et un espace entre les lignes" width="850">
 </p>
 
 **Lines** : les mêmes informations sous forme de texte coloré classique.
@@ -102,7 +102,7 @@ Prévisualisez tous les thèmes avec `npx agy-powerline theme --gallery`.
 | `context`, `contextPct`, `contextTokens`                | Fenêtre de contexte utilisée : jauge, pourcentage ou nombre de tokens                                                |
 | `git`                                                   | Branche, modifications non validées et commits en avance ou en retard                                                |
 | `project`, `cwd`                                        | Dossier du projet et dossier courant                                                                                 |
-| `agentState`, `plan`, `sandbox`, `artifacts`, `version` | Activité de l’agent, plan, bac à sable, artefacts et version de la CLI                                               |
+| `agentState`, `plan`, `sandbox`, `artifacts`, `version` | Activité de l’agent, abonnement Antigravity, bac à sable, artefacts et version de la CLI                             |
 | `tasks`                                                 | Sous-agents actifs et tâches en arrière-plan                                                                         |
 | `mode`                                                  | Mode d’approbation (par exemple `accept-edits`) et mode Vim                                                          |
 | `title`                                                 | Titre de la conversation                                                                                             |
@@ -114,18 +114,18 @@ Un widget qui n’a rien à afficher se masque automatiquement. Vous pouvez pers
 
 ## Commandes
 
-| Commande                                  | Fonction                                                                 |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| `npx agy-powerline init [--yes]`          | Installer ou mettre à jour la barre d’état                               |
-| `npx agy-powerline configure`             | Ouvrir l’éditeur (alias `config`)                                        |
-| `npx agy-powerline preset <name>`         | Appliquer un préréglage (`--list` pour afficher la liste)                |
-| `npx agy-powerline theme <name>`          | Changer de thème (`--list`, `--gallery`)                                 |
-| `npx agy-powerline layout <pills\|lines>` | Changer de disposition                                                   |
-| `npx agy-powerline caps <style>`          | Changer la forme des capsules : `round`, `angled`, `slanted`, `flat`     |
-| `npx agy-powerline doctor`                | Vérifier l’installation et expliquer les éventuels problèmes             |
-| `npx agy-powerline report`                | Générer un rapport de bogue respectueux de la vie privée                 |
-| `npx agy-powerline uninstall [--delete]`  | Supprimer la barre d’état d’agy (`--delete` supprime aussi ses fichiers) |
-| `npx agy-powerline render --demo`         | Afficher la barre avec des données d’exemple                             |
+| Commande                                  | Fonction                                                               |
+| ----------------------------------------- | ---------------------------------------------------------------------- |
+| `npx agy-powerline init [--yes]`          | Installer ou mettre à jour la barre d’état                             |
+| `npx agy-powerline configure`             | Ouvrir l’éditeur (alias `config`)                                      |
+| `npx agy-powerline preset <name>`         | Appliquer un préréglage (`--list` pour afficher la liste)              |
+| `npx agy-powerline theme <name>`          | Changer de thème (`--list`, `--gallery`)                               |
+| `npx agy-powerline layout <pills\|lines>` | Changer de disposition                                                 |
+| `npx agy-powerline caps <style>`          | Changer la forme des capsules : `round`, `angled`, `slanted`, `flat`   |
+| `npx agy-powerline doctor`                | Vérifier l’installation et expliquer les éventuels problèmes           |
+| `npx agy-powerline report`                | Générer un rapport de bogue respectueux de la vie privée               |
+| `npx agy-powerline uninstall [--delete]`  | Retirer la barre d’état d’agy (`--delete` supprime aussi ses fichiers) |
+| `npx agy-powerline render --demo`         | Afficher la barre avec des données d’exemple                           |
 
 Utilisez l’option `--help` avec n’importe quelle commande pour afficher les options disponibles.
 
@@ -140,13 +140,13 @@ Vos paramètres sont conservés. Redémarrez ensuite `agy`.
 
 ## Dépannage
 
-Commencez par exécuter `npx agy-powerline doctor` : cette commande vérifie l’installation et explique comment corriger les problèmes détectés. Retrouvez les problèmes courants et la procédure pour signaler un bogue dans la section [Dépannage](docs/troubleshooting.md).
+Commencez par exécuter `npx agy-powerline doctor` : cette commande vérifie l’installation et explique comment corriger les problèmes détectés. Retrouvez les problèmes courants et la procédure pour signaler un bogue dans le [guide de dépannage](docs/troubleshooting.md).
 
 ## Confidentialité et sécurité
 
 - **Aucun appel réseau, aucune télémétrie.** Toutes les informations proviennent des données transmises par agy à la barre d’état, de `.git` et de votre système d’exploitation. Le seul lien externe est accessible avec la touche `g` dans `configure`, qui ouvre la page GitHub dans votre navigateur.
 - **Vos paramètres sont protégés.** `init` et `uninstall` sauvegardent `settings.json` et refusent de modifier un fichier qu’ils ne parviennent pas à analyser.
-- **Aucune commande n’est exécutée sans votre intervention.** À l’exception d’une brève commande `git` pour compter les commits en avance ou en retard, les seules commandes exécutées par la barre sont celles des widgets `exec` que vous configurez vous-même.
+- **Rien ne s’exécute sans que vous l’ayez ajouté.** À l’exception d’une brève commande `git` pour compter les commits en avance ou en retard, les seules commandes exécutées par la barre sont celles des widgets `exec` que vous configurez vous-même.
 - **Aucune dépendance à l’exécution**, avec une publication depuis la CI et une [attestation de provenance npm](https://docs.npmjs.com/generating-provenance-statements).
 
 Pour plus de détails, consultez [SECURITY.md](SECURITY.md).
